@@ -13,6 +13,7 @@ library(ggplot2)
 library(data.table)
 library(reshape2)
 
+
 # SET UP ------------------------
 
 main_dir <- file.path("/Users/dnoriega/GitHub/SSRI_exploratory_graphs_w_ggplot2/")
@@ -23,8 +24,27 @@ main_dir <- file.path("/Users/dnoriega/GitHub/SSRI_exploratory_graphs_w_ggplot2/
 econ <- fread(file.path(main_dir, "econ.csv"))
 diamonds <- fread(file.path(main_dir, "diamonds.csv"))
 
-# GGPLOT2 BASICS ---------------------------
+# data tweaks
+## variable `date` in econ is a string. strings have no "order" -- considered categories
+date2 <- strptime(econ$date, "%F", tz='utc') # create time variable
 
-# ggplot
-# - requires (1) data and (2) aesthetics
-g1 <- ggplot(econ, aes(x = date, y = unemp))
+# GGPLOT2 BASICS: qplot ---------------------------
+
+## qplot objects (good for wide data, quick plotting)
+s1 <- qplot(x=date2, y = econ$unemploy, geom = "smooth")
+l1 <- qplot(x=date2, y = econ$unemploy, geom = "line")
+
+
+
+# GGPLOT2 BASICS: ggplot ---------------------------
+
+## ggplot object (good for categories groups)
+# (1) data and (2) aesthetics
+g1 <- ggplot(diamonds, aes(x = price, fill = cut))
+g1 # error -- needs layers
+
+# (3) layers
+g2 <- g1 + geom_bar()
+g2
+
+# (4) position
