@@ -16,6 +16,7 @@
 #### Resources
 
 [docs.ggplot2.org](http://docs.ggplot2.org/current/) --- index of `ggplot2` functions, what each can do, and examples
+
 [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/) --- list of general data graphics topics and how to do them with `ggplot2`
 
 ## `data.table`
@@ -33,7 +34,9 @@ My go-to data package. It is *incredibly* fast, easily handles *billions* of obs
 #### Resources
 
 [`data.table` homepage](https://github.com/Rdatatable/data.table/wiki) --- everything you need to know about `data.table`
+
 [Introduction to `data.table`](https://rawgit.com/wiki/Rdatatable/data.table/vignettes/datatable-intro-vignette.html) --- a vignette with a great intro
+
 [Cheat Sheet by DataCamp](http://blog.datacamp.com/data-table-cheat-sheet/) --- a long, great cheat sheet for using `data.table`
 
 
